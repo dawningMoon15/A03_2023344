@@ -1,0 +1,124 @@
+/* Landing Section Styles */
+.landing-section {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: none !important;
+}
+
+.landing-bg {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 110vw;
+  height: 110vh;
+  background: url('../Assets/landing.png') center center/cover no-repeat !important;
+  z-index: 1;
+  transition: transform 0.7s cubic-bezier(.23,1.07,.32,1);
+  will-change: transform;
+  
+}
+
+.landing-overlay {
+  position: relative;
+  z-index: 2;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background: rgba(24, 18, 43, 0.32);
+  backdrop-filter: blur(12px) saturate(1.2);
+  border-radius: 2rem;
+  border: 1.5px solid rgba(200,200,220,0.13);
+}
+
+.landing-nav {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 2.5rem;
+  padding: 2.2rem 3.5rem 0 3.5rem;
+  font-family: 'Orbitron', 'Inter', sans-serif;
+  font-size: 1.1rem;
+  color: #fff;
+  letter-spacing: 1.2px;
+  font-weight: 600;
+}
+
+.landing-signin {
+  background: rgba(30, 16, 56, 0.85);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 1rem;
+  padding: 0.5rem 1.4rem;
+  
+  margin-left: 1.5rem;
+  cursor: pointer;
+  transition: filter 0.2s, background 0.2s;
+}
+.landing-signin:hover {
+  
+  background: rgba(46, 130, 255, 0.85);
+}
+
+.landing-content {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-direction: row;
+  padding: 4.5rem 3.5rem;
+  height: 100%;
+  gap: 3vw;
+}
+
+.landing-desc {
+  max-width: 340px;
+  color: #fff;
+  font-size: 1.15rem;
+  font-family: 'Inter', sans-serif;
+  line-height: 1.6;
+  margin-top: 2.5rem;
+  opacity: 0.9;
+}
+.landing-kpr {
+  font-weight: bold;
+  letter-spacing: 1.5px;
+  color: #7DF9FF;
+}
+
+.landing-title {
+  font-size: 5vw;
+  font-weight: 900;
+  color: #fff;
+  text-transform: uppercase;
+  text-align: left;
+  line-height: 0.95;
+  margin-left: 4vw;
+  margin-top: 0.5rem;
+  word-break: break-word;
+  letter-spacing: -0.04em;
+  
+}
+
+@media (max-width: 900px) {
+  .landing-content {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 2.5rem 1.5rem;
+    gap: 1.5vw;
+  }
+  .landing-title {
+    font-size: 2.3rem;
+    margin-left: 0;
+  }
+  .landing-desc {
+    margin-top: 1rem;
+  }
+}

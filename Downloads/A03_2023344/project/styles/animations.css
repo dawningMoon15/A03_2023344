@@ -1,0 +1,216 @@
+/* Animation Keyframes */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes rotate {
+  from {
+    transform: rotateX(0) rotateY(0) rotateZ(0);
+  }
+  to {
+    transform: rotateX(360deg) rotateY(360deg) rotateZ(360deg);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+@keyframes wave {
+  0% {
+    transform: rotate(0deg);
+  }
+  10% {
+    transform: rotate(14deg);
+  }
+  20% {
+    transform: rotate(-8deg);
+  }
+  30% {
+    transform: rotate(14deg);
+  }
+  40% {
+    transform: rotate(-4deg);
+  }
+  50% {
+    transform: rotate(10deg);
+  }
+  60% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes jumbleText {
+  0% {
+    transform: translateX(0) translateY(0) rotate(0);
+  }
+  25% {
+    transform: translateX(5px) translateY(-5px) rotate(5deg);
+  }
+  50% {
+    transform: translateX(-5px) translateY(5px) rotate(-5deg);
+  }
+  75% {
+    transform: translateX(3px) translateY(-3px) rotate(3deg);
+  }
+  100% {
+    transform: translateX(0) translateY(0) rotate(0);
+  }
+}
+
+@keyframes pulseLight {
+  0%, 100% {
+    box-shadow: 0 0 5px 2px rgba(255, 255, 255, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 20px 10px rgba(255, 255, 255, 0.7);
+  }
+}
+
+/* Removed neon-border-pulse animation for clean look */
+
+
+@keyframes neon-flicker {
+  0%, 100% { opacity: 1; }
+  10% { opacity: 0.7; }
+  20% { opacity: 1; }
+  30% { opacity: 0.6; }
+  40% { opacity: 1; }
+  50% { opacity: 0.8; }
+  60% { opacity: 1; }
+  70% { opacity: 0.9; }
+  80% { opacity: 1; }
+  90% { opacity: 0.95; }
+}
+
+@keyframes section-slide-in {
+  0% { opacity: 0; transform: translateY(48px) scale(0.98); }
+  100% { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@keyframes card-pop {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.06) rotate(-2deg); }
+  100% { transform: scale(1); }
+}
+
+/* Removed glow-text animation for cleaner look */
+
+
+/* Animation Classes */
+.fade-in {
+  opacity: 0;
+  animation: fadeIn 1.5s ease forwards;
+  animation-delay: 0.5s;
+}
+
+.float {
+  animation: float 3s ease-in-out infinite;
+}
+
+.wave-on-hover:hover {
+  animation: wave 1.5s ease-in-out;
+}
+
+.jumbled-text span {
+  display: inline-block;
+  animation: jumbleText 1.5s infinite;
+}
+
+.pulse-light {
+  animation: pulseLight 2s infinite;
+}
+
+/* Parallax effect */
+.parallax-layer {
+  transition: transform 0.2s ease-out;
+}
+
+/* Card hover effects */
+.project-card:hover {
+  transform: scale(1.05);
+  z-index: 10;
+}
+
+/* Corridor frame zoom effect */
+.corridor-frame {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.corridor-frame:hover {
+  transform: scale(1.1);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+/* Photos animation */
+.photo-item {
+  transition: transform 0.3s ease;
+}
+
+.photo-item:hover {
+  transform: scale(1.05);
+}
+
+/* Avatar wave animation */
+.avatar-image.waving {
+  animation: wave 1.5s ease-in-out;
+}
+
+/* Modal animations */
+.project-modal {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.project-modal.show {
+  opacity: 1;
+}
+
+.modal-content {
+  transform: translateY(50px);
+  opacity: 0;
+  transition: all 0.4s ease;
+}
+
+.project-modal.show .modal-content {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+/* Navigation hover effect */
+.navigation a::after {
+  content: '';
+  display: block;
+  width: 0;
+  height: 2px;
+  background: var(--accent);
+  transition: width 0.3s;
+}
+
+.navigation a:hover::after {
+  width: 100%;
+}
+
+/* Social icons hover animation */
+.social-icon {
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.social-icon:hover {
+  transform: translateY(-5px);
+}

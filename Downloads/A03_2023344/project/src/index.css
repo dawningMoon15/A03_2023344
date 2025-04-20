@@ -1,0 +1,9 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  @import './Landing.css';
+  @import './InfiniteHall.css';
+  @import './About.css';
+}

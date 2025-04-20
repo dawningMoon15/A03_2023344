@@ -1,0 +1,373 @@
+/* Main Stylesheet - Cyberpunk Neon */
+:root {
+  /* Neon Cyberpunk Colors */
+  --cyberpunk-bg: #18122B;
+  --cyberpunk-panel: #232041;
+  --cyberpunk-neon-pink: #FF3CAC;
+  --cyberpunk-neon-blue: #2E82FF;
+  --cyberpunk-neon-purple: #A100FF;
+  --cyberpunk-neon-green: #7DF9FF;
+  --cyberpunk-neon-yellow: #F9FF00;
+  --cyberpunk-neon-orange: #FFB300;
+  
+
+  /* Color variables - Updated from Figma palette */
+  --primary: #2C2E57;
+  --secondary: #A54258;
+  --accent: #7CD793;
+  --bg-light: #FFFFFF;
+  --bg-dark: #1A1A1A;
+  --text-light: #FFFFFF;
+  --text-dark: #232323;
+  --overlay: rgba(44, 46, 87, 0.8);
+
+  /* Grayscale */
+  --gray-100: #FFFFFF;
+  --gray-200: #C6C8CB;
+  --gray-300: #AFB1AF;
+  --gray-400: #969A96;
+  --gray-500: #696A65;
+  --gray-600: #434543;
+  --gray-700: #242A24;
+
+  /* Pink/Red */
+  --pink-100: #FCE7E9;
+  --pink-200: #ECCDD1;
+  --pink-300: #E6A6A5;
+  --pink-400: #DB627A;
+  --pink-500: #A54256;
+  --pink-600: #70535A;
+  --pink-700: #5D414C;
+
+  /* Purple */
+  --purple-100: #F1CFFF;
+  --purple-200: #E2B5C2;
+  --purple-300: #E2B0EF;
+  --purple-400: #A64A8A;
+  --purple-500: #9A478A;
+  --purple-600: #5D318D;
+  --purple-700: #A03A5A;
+
+  /* Gray/Neutral */
+  --neutral-100: #D8D7D6;
+  --neutral-200: #6E3F7E;
+  --neutral-300: #9E9691;
+  --neutral-400: #8A858D;
+  --neutral-500: #61625A;
+  --neutral-600: #272426;
+  --neutral-700: #121012;
+
+  /* Blue */
+  --blue-100: #E0E0F1;
+  --blue-200: #E0E1DA;
+  --blue-300: #9697C3;
+  --blue-400: #6E76A6;
+  --blue-500: #4960EA;
+  --blue-600: #2C2E57;
+  --blue-700: #111129;
+
+  /* Green */
+  --green-100: #C7F7C9;
+  --green-200: #70C789;
+  --green-300: #93A96B;
+  --green-400: #5AA14F;
+  --green-500: #336C30;
+  --green-600: #1D3A20;
+  --green-700: #1A1A1A;
+  /* Time-based theme (default is light) */
+  --current-bg: var(--bg-light);
+  --current-text: var(--text-dark);
+  /* Spacing */
+  --spacing-sm: 8px;
+  --spacing-md: 16px;
+  --spacing-lg: 24px;
+  --spacing-xl: 32px;
+  /* Z-indices */
+  --z-navigation: 100;
+  --z-modal: 200;
+  --z-overlay: 150;
+  --z-controls: 90;
+}
+
+
+
+@keyframes cyber-gradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes cyber-flicker {
+  0%, 100% { opacity: 1; }
+  10% { opacity: 0.7; }
+  20% { opacity: 1; }
+  30% { opacity: 0.6; }
+  40% { opacity: 1; }
+  50% { opacity: 0.8; }
+  60% { opacity: 1; }
+  70% { opacity: 0.9; }
+  80% { opacity: 1; }
+  90% { opacity: 0.95; }
+}
+
+/* Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  background: #18122B;
+  color: var(--green-100);
+  min-height: 100vh;
+  background-size: 200% 200%;
+  animation: cyber-gradient 16s ease-in-out infinite;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  line-height: 1.5;
+  color: var(--current-text);
+  background-color: var(--current-bg);
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Orbitron', 'Inter', 'Segoe UI', Arial, sans-serif;
+  letter-spacing: 2px;
+  
+
+  line-height: 1.2;
+  margin-bottom: var(--spacing-md);
+}
+
+h1 {
+  font-size: 3rem;
+  font-weight: 600;
+}
+
+h2 {
+  font-size: 2.5rem;
+  font-weight: 600;
+}
+
+h3 {
+  font-size: 1.75rem;
+  font-weight: 600;
+}
+
+p {
+  margin-bottom: var(--spacing-md);
+}
+
+a {
+  color: var(--primary);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: var(--secondary);
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+/* Navigation */
+.navigation {
+  background: rgba(24, 18, 43, 0.96);
+  
+  
+  animation: cyber-flicker 3s infinite;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: var(--spacing-md);
+  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(8px);
+  z-index: var(--z-navigation);
+}
+
+.navigation ul {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+}
+
+.navigation li {
+  margin: 0 var(--spacing-md);
+}
+
+.navigation a {
+  color: var(--text-light);
+  text-decoration: none;
+  font-weight: 600;
+  padding: var(--spacing-sm);
+  transition: all 0.3s ease;
+}
+
+.navigation a:hover {
+  color: var(--accent);
+}
+
+/* Audio Controls */
+.audio-controls {
+  position: fixed;
+  bottom: var(--spacing-md);
+  right: var(--spacing-md);
+  z-index: var(--z-controls);
+}
+
+.audio-controls button {
+  background: rgba(0, 0, 0, 0.5);
+  color: var(--text-light);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.audio-controls button:hover {
+  background: rgba(0, 0, 0, 0.7);
+  transform: scale(1.1);
+}
+
+.music-off {
+  display: none;
+}
+
+/* Section Base */
+.section {
+  background: rgba(35, 32, 65, 0.8);
+  border-radius: 24px;
+  
+  margin: 32px 0;
+  animation: cyber-gradient 12s ease-in-out infinite;
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: var(--spacing-xl);
+  scroll-snap-align: start;
+}
+
+/* Project Modal */
+.project-modal {
+  background: rgba(30, 30, 30, 0.96) !important;
+  color: #e3e3e3 !important;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.2) !important;
+  border-radius: 16px !important;
+
+  background: rgba(30, 30, 30, 0.96); /* subtle dark background */
+  color: #e3e3e3;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.2); /* softer shadow */
+  border-radius: 16px;
+
+  background: rgba(30, 16, 56, 0.98);
+  
+  
+  animation: cyber-flicker 2s infinite;
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--overlay);
+  z-index: var(--z-modal);
+  padding: var(--spacing-xl);
+}
+
+.modal-content {
+  max-height: 200px !important;
+  min-height: 100px !important;
+  background: #23272f !important;
+  color: #e3e3e3 !important;
+  box-shadow: none !important;
+  border-radius: 12px !important;
+  padding: 18px 20px 12px 20px !important;
+  font-size: 1rem !important;
+  filter: none !important;
+
+  max-height: 200px;
+  min-height: 100px;
+  background: #23272f;
+  color: #e3e3e3;
+  box-shadow: none;
+  border-radius: 12px;
+  padding: 18px 20px 12px 20px;
+  font-size: 1rem;
+  filter: none;
+
+  background: #232041;
+  
+  border-radius: 16px;
+  
+  animation: cyber-gradient 8s ease-in-out infinite;
+}
+
+
+.close-modal {
+  position: absolute;
+  top: var(--spacing-md);
+  right: var(--spacing-md);
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.modal-title {
+  color: #3eb489 !important;
+  text-shadow: none !important;
+  font-weight: 700 !important;
+  font-size: 1.4rem !important;
+  margin-bottom: 8px !important;
+
+  color: #3eb489;
+  text-shadow: none;
+  font-weight: 700;
+  font-size: 1.4rem;
+  margin-bottom: 8px;
+
+  color: var(--cyberpunk-neon-yellow);
+  
+
+  font-size: 2rem;
+  margin-bottom: var(--spacing-lg);
+}
+
+.modal-image {
+  width: 100%;
+  height: 300px;
+  background-color: #e0e0e0;
+  margin-bottom: var(--spacing-lg);
+  border-radius: 8px;
+}
+
+.modal-tech, .modal-year {
+  color: #3eb489 !important;
+  text-shadow: none !important;
+  font-size: 1rem !important;
+
+  color: #3eb489;
+  text-shadow: none;
+  font-size: 1rem;
+
+  color: var(--cyberpunk-neon-green);
+  text-shadow: 0 0 6px var(--cyberpunk-neon-green), 0 0 12px var(--cyberpunk-neon-blue);
+
+}
